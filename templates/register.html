@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block container %}
-    
+    <h3> {{ message}}</h3>
     <form action="/register" method="POST" novalidate>
-        <input type="'text" placeholder= 'username...' /><br>
-        <input type="password" placeholder="password" /><br>
-        <input type="password" placeholder="confirm password"/><br>    
-    <button >Register</button>        
+        <input type="text" name ="uname" placeholder= 'username...' /><br>
+        <input type="password" name="pword" placeholder="password" /><br>
+        <input type="password" name="confirm" placeholder="confirm password"/><br>    
+    <button >Register</button>
+    {% for err in error %}
+        <li> {{ err }}</li>
+    {% endfor %}
     </form>
 {% endblock %}
